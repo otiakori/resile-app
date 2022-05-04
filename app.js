@@ -1,10 +1,14 @@
-const person = {
-    firstName: "John",
-    lastName: "Doe",
-    age: 50,
-    eyeColor: "blue"
-  };
-  
-   
-  document.getElementById("demo").innerHTML =
-  person.firstName + " is " + person.age + " years old.";
+function validateform() {
+          let x = document.forms['FORMS']['fname'].value;
+          let y = document.forms['FORMS']['lname'].value;
+          let z = document.forms['FORMS']['email'].value;
+          let a = document.forms['FORMS']['pwd'].value;
+
+          if (x == "" || y == "" || z == "" || a == "" ) {
+            alert('please  enter all fields');
+      
+      return false;
+      
+    }  
+
+}
