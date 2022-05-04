@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,21 +13,23 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-         
+
 
   <h1 class=" a p6 rounded-shadow"> <center> SIGN-UP FORM</center></h1> <hr>
 <br>
-<div style="align-content: center" class="" ><center> 
-    <form class="form col-md-4 mt2 bg-dark" ><fieldset> 
-<input type="text" class="form-control" placeholder="firstname" style="width: auto; margin-top:3rem;"  ><br>
-<input type="text" class="form-control" placeholder="lastname"  style="width: auto;" ><br>
-<input type="email" class="form-control" placeholder="email" style="width: auto;"><br>
-<input type="password" class="form-control" placeholder="password" style="width: auto;"><br>
-<input type="password" class="form-control" placeholder="re-enter password" style="width: auto;"><br>
- <button type="submit" class="btn btn-primary">signup</button>
+<div style="align-content: center" class="" ><center>
+<form class="form col-md-4 mt2 bg-dark" method="post" action="insert.php">
+  <fieldset>
+    <input type="text" class="form-control" placeholder="firstname" name="fname" style="width: auto; margin-top:3rem;"  ><br>
+    <input type="text" class="form-control" placeholder="lastname" name="lname" style="width: auto;" ><br>
+    <input type="email" class="form-control" placeholder="email" name="email" style="width: auto;"><br>
+    <input type="password" class="form-control" placeholder="password" name="pwd" style="width: auto;"><br>
+    <input type="password" class="form-control" placeholder="re-enter password" style="width: auto;"><br>
+    <button type="submit" class="btn btn-primary">signup</button>
 
- <p style="color:white;">already have an account? <a href=""> click here</a> to login</p>
-</fieldset></form>
+    <p style="color:white;">already have an account? <a href=""> click here</a> to login</p>
+  </fieldset>
+</form>
 </center>
 
 </div>
