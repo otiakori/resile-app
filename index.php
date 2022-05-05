@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-     <script src="app.js"></script>
+     <!-- <script src="app.js"></script> -->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -20,30 +20,50 @@
 <div style="align-content: center" class="" ><center>
 <form class="form col-md-4 mt2 bg-dark" method="post" action="insert.php">
   <fieldset>
-    <input type="text" class="form-control" placeholder="firstname" name="fname" style="width: auto; margin-top:3rem;"  ><br>
-    <input type="text" class="form-control" placeholder="lastname" name="lname" style="width: auto;" ><br>
-    <input type="email" class="form-control" placeholder="email" name="email" style="width: auto;"><br>
-    <input type="password" class="form-control" placeholder="password" name="pwd" style="width: auto;"><br>
-    <input type="password" class="form-control" placeholder="re-enter password" style="width: auto;"><br>
-    <button type="submit" class="btn btn-primary">signup</button>
-
+    <input type="text" id="fn" class="form-control" oninput="ComparePassword()" placeholder="firstname" name="fname" style="width: auto; margin-top:3rem;"  ><br>
+    <input type="text" id="ln" class="form-control" oninput="ComparePassword()" placeholder="lastname" name="lname" style="width: auto;" ><br>
+    <input type="email" id="e" class="form-control" oninput="ComparePassword()" placeholder="email" name="email" style="width: auto;"><br>
+    <input type="password" id="pass" class="form-control" oninput="ComparePassword()" placeholder="password" name="pwd" style="width: auto;"><br>
+    <input type="password" id="conf-pass" class="form-control" oninput="ComparePassword()" placeholder="re-enter password" style="width: auto;"><br>
+    <button type="submit" disabled id="btn" class="btn btn-primary">signup</button>
+    <label id="l1">Pass Ckeck!</lable>
     <p style="color:white;">already have an account? <a href=""> click here</a> to login</p>
   </fieldset>
 </form>
 </center>
 
 </div>
+<script type="text/javascript">
+  function ComparePassword(){
+    let confField = document.getElementById('conf-pass');
+    let p1 = document.getElementById('pass').value;
+    let p2 = confField.value;
+    let fname = document.getElementById('fn').value;
+    let lname = document.getElementById('ln').value;
+    let email = document.getElementById('e').value;
+    if (fname ==="" || lname ==="" || email ==="") {
+      document.getElementById('btn').disabled = true;
+    }
+    if(p1 === ""){
+      document.getElementById('btn').disabled = true;
+      document.getElementById('l1').innerHTML = "";
+    }
+    if(p1 !== p2) {
+      confField.style.color = "Red";
+      document.getElementById('l1').style.color = "Red";
+      document.getElementById('l1').innerHTML = "Passwords don't match!";
+      document.getElementById('btn').disabled = true;
+    }
+    if(p1 === p2 && p1 !== "") {
+      confField.style.color = "Blue";
+      document.getElementById('l1').style.color = "Blue";
+      document.getElementById('l1').innerHTML = "Passwords match!";
+    }
+    if(fname !=="" && lname !=="" && email !=="" && p1 !=="" && p1 === p2){
+      document.getElementById('btn').disabled = false;
+    }
+  }
 
-
-
-
-
-
-
-
-
-
-
-
+</script>
 </body>
 </html>
